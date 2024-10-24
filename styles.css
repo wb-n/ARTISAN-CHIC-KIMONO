@@ -2,7 +2,12 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #f784da00;
+    background-image: url('assets/hnggrs.jpeg'); /* Change path and filename as needed */
+    background-size: cover; /* Ensures the image covers the whole area */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    height: 100vh; /* Sets the height to fill the viewport */
 }
 
 header {
@@ -111,4 +116,108 @@ ul {
 
 h1, h2, h3 {
     margin: 20px 0;
+}
+
+/* Hero Section */
+#hero {
+    background: url('fashion-banner.jpg') no-repeat center center/cover;
+    height: 400px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+}
+
+.shop-now {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.shop-now:hover {
+    background-color: #555;
+}
+
+/* Featured Products */
+#featured-products {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+#featured-products .product {
+    margin: 10px;
+    text-align: center;
+}
+
+/* Centered Paragraph Section */
+.centered-paragraph {
+    text-align: center;
+    max-width: 800px;
+    margin: 50px auto; /* Centers the paragraph horizontally */
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.centered-paragraph p {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer nav a {
+    color: white;
+    margin: 0 10px;
+}
+
+#featured-products {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    padding: 20px;
+}
+
+.featured-title {
+    text-align: center; /* Center the title text */
+    margin-bottom: 20px; /* Space below the title */
+}
+
+.collection-name {
+    text-align: center; /* Center the collection name */
+    margin: 10px 0 20px; /* Space above and below the collection name */
+    font-size: 1.5em; /* Adjust font size as needed */
+    color: #333; /* Optional: Set a specific color */
+    font-weight: bold; /* Optional: Make it bold */
+}
+
+.product-images {
+    display: flex; /* Align images in a row */
+    justify-content: center; /* Center images horizontally */
+    margin-bottom: 10px; /* Space between images and product details */
+}
+
+.product-images img {
+    max-width: 100px; /* Set a max width for each image */
+    margin: 0 5px; /* Add space between images */
+    border-radius: 5px; /* Optional: add some border radius for aesthetics */
+}
+
+.product {
+    margin: 20px; /* Space around each product */
+    text-align: center; /* Center text within each product */
 }

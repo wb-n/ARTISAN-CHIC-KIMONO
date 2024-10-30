@@ -17,4 +17,3 @@ function updateCart() {
     });
     document.getElementById('total-price').textContent = totalPrice;
 }
-

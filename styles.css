@@ -17,6 +17,15 @@ header {
     text-align: center;
 }
 
+.cart-link {
+    display: flex;
+    align-items: center;
+    margin-left: 1240px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
 nav a {
     color: white;
     text-decoration: none;
@@ -151,7 +160,14 @@ h1, h2, h3 {
 #featured-products {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
     padding: 20px;
+}
+
+.featured-title {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 #featured-products .product {
@@ -185,18 +201,6 @@ footer nav a {
     margin: 0 10px;
 }
 
-#featured-products {
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-    padding: 20px;
-}
-
-.featured-title {
-    text-align: center; /* Center the title text */
-    margin-bottom: 20px; /* Space below the title */
-}
-
 .collection-name {
     text-align: center; /* Center the collection name */
     margin: 10px 0 20px; /* Space above and below the collection name */
@@ -206,18 +210,53 @@ footer nav a {
 }
 
 .product-images {
-    display: flex; /* Align images in a row */
-    justify-content: center; /* Center images horizontally */
-    margin-bottom: 10px; /* Space between images and product details */
+    position: relative;
+    width: 100%;
+    height: 250px; /* Adjust height as needed */
+    overflow: hidden;
 }
 
 .product-images img {
-    max-width: 100px; /* Set a max width for each image */
-    margin: 0 5px; /* Add space between images */
-    border-radius: 5px; /* Optional: add some border radius for aesthetics */
+    width: 100%; /* Set a max width for each image */
+    height: 100%; /* Ensures full height */
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.product-slideshow img.active {
+    opacity: 1;
 }
 
 .product {
-    margin: 20px; /* Space around each product */
+    margin: 10px; /* Space around each product */
     text-align: center; /* Center text within each product */
+    flex: 1 1 200px; /* Allows flexibility while ensuring a minimum width */
+    max-width: 250px; /* Optional maximum width */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.materials-description {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 1.1em;
+    margin: 10px 20px 30px; /* Space around the paragraph */
+    line-height: 1.6;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px 20px; 
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }

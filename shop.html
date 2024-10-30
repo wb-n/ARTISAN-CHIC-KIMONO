@@ -18,60 +18,68 @@
         </nav>
     </header>
 
-    <section id="products">
+    <section id="featured-products">
         <h2>Our Latest Collection</h2>
-        <div class="featured-product" id="product4">
-            <div class="product-images">
-                <img src="assets/bbf.png" alt="Jacket">
-                <img src="assets/bbb.png" alt="Jacket 2">
+
+        <p class="materials-description">
+            "Our kimonos are crafted from the finest materials. Discover the unparalleled elegance of our kimonos, meticulously crafted from the world’s finest fabrics. We source only the highest-quality silk, organic cotton, and sustainable bamboo fibers to bring you kimonos that feel as luxurious as they look. Our materials are carefully chosen not just for their beauty but for their durability and sustainability, ensuring each piece embodies both tradition and modern ethical craftsmanship. Wrap yourself in a kimono that’s soft, breathable, and beautifully made—an investment in both style and conscience."
+        </p>
+
+        <div class="product-grid" id="products">
+            <div class="product" id="product1">
+                <div class="product-images">
+                    <img src="assets/bbf.png" alt="Kimono 1" class="slide">
+                    <img src="assets/bbb.png" alt="Kimono 2" class="slide active">
+                </div>
+                <h3>Cool Jacket</h3>
+                <p>Price: £35</p>
+                <button onclick="addToCart('Cool Jacket', 35)">Add to Cart</button>
             </div>
-            <h3>Cool Jacket</h3>
-            <p>Price: £35</p>
-            <button onclick="addToCart('Cool Jacket', 35)">Add to Cart</button>
-        </div>
-        <div class="product" id="product4">
-            <div class="product-images">
-                <img src="assets/brf.png" alt="Jacket">
-                <img src="assets/brb.png" alt="Jacket 2">
+            <div class="product" id="product2">
+                <div class="product-images">
+                    <img src="assets/brf.png" alt="Kimono 1" class="slide">
+                    <img src="assets/brb.png" alt="Kimono 2" class="slide active">
+                </div>
+                <h3>Cool Jacket</h3>
+                <p>Price: £35</p>
+                <button onclick="addToCart('Cool Jacket', 35)">Add to Cart</button>
             </div>
-            <h3>Cool Jacket</h3>
-            <p>Price: £35</p>
-            <button onclick="addToCart('Cool Jacket', 35)">Add to Cart</button>
-        </div>
-        <div class="product" id="product4">
-            <div class="product-images">
-                <img src="assets/bsf.png" alt="Jacket">
+            <div class="product" id="product3">
+                <div class="product-images">
+                    <img src="assets/bsf.png" alt="Kimono 1" class="slide">
+                    <img src="assets/bsf.png" alt="Kimono 1" class="slide active">
+                </div>
+                <h3>Cool Jacket</h3>
+                <p>Price: £35</p>
+                <button onclick="addToCart('Cool Jacket', 35)">Add to Cart</button>
             </div>
-            <h3>Cool Jacket</h3>
-            <p>Price: £35</p>
-            <button onclick="addToCart('Cool Jacket', 35)">Add to Cart</button>
-        </div>
-        <div class="product" id="product4">
-            <div class="product-images">
-                <img src="assets/ff.png" alt="Jacket">
-                <img src="assets/fb.png" alt="Jacket 2">
+            <div class="product" id="product4">
+                <div class="product-images">
+                    <img src="assets/ff.png" alt="Kimono 1" class="slide">
+                    <img src="assets/fb.png" alt="Kimono 2" class="slide active">
+                </div>
+                <h3>Cool Jacket</h3>
+                <p>Price: £35</p>
+                <button onclick="addToCart('Cool Jacket', 35)">Add to Cart</button>
             </div>
-            <h3>Cool Jacket</h3>
-            <p>Price: £35</p>
-            <button onclick="addToCart('Cool Jacket', 35)">Add to Cart</button>
-        </div>
-        <div class="product" id="product4">
-            <div class="product-images">
-                <img src="assets/rsf.png" alt="Jacket">
-                <img src="assets/rsb.png" alt="Jacket 2">
+            <div class="product" id="product5">
+                <div class="product-images">
+                    <img src="assets/rsf.png" alt="Kimono 1" class="slide">
+                    <img src="assets/rsb.png" alt="Kimono 2" class="slide active">
+                </div>
+                <h3>Cool Jacket</h3>
+                <p>Price: £35</p>
+                <button onclick="addToCart('Cool Jacket', 35)">Add to Cart</button>
             </div>
-            <h3>Cool Jacket</h3>
-            <p>Price: £35</p>
-            <button onclick="addToCart('Cool Jacket', 35)">Add to Cart</button>
-        </div>
-        <div class="product" id="product4">
-            <div class="product-images">
-                <img src="assets/bbf.png" alt="Jacket">
-                <img src="assets/bbb.png" alt="Jacket 2">
+            <div class="product" id="product6">
+                <div class="product-images">
+                    <img src="assets/bbf.png" alt="Kimono 1" class="slide">
+                    <img src="assets/bbb.png" alt="Kimono 2" class="slide active">
+                </div>
+                <h3>Cool Jacket</h3>
+                <p>Price: £35</p>
+                <button onclick="addToCart('Cool Jacket', 35)">Add to Cart</button>
             </div>
-            <h3>Cool Jacket</h3>
-            <p>Price: £35</p>
-            <button onclick="addToCart('Cool Jacket', 35)">Add to Cart</button>
         </div>
     </section>
 
@@ -80,6 +88,33 @@
         <ul id="cart-items"></ul>
         <p>Total: £<span id="total-price">0</span></p>
     </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const slideshows = document.querySelectorAll(".product-images");
+            slideshows.forEach(slideshow => {
+                const slides = slideshow.querySelectorAll("img");
+                let index = 0;
+
+                function showNextSlide() {
+                    // Remove 'active' class from the current slide
+                    slides[index].classList.remove("active");
+
+                    // Move to the next index
+                    index = (index + 1) % slides.length; // Loop back to the first slide after the last
+
+                    // Add 'active' class to the next slide
+                    slides[index].classList.add("active");
+                }
+
+                // Initially show the first image
+                slides[0].classList.add("active");
+
+                // Change slide every 3 seconds
+                setInterval(showNextSlide, 3000);
+            });
+        });
+    </script>
 
     <script src="scripts.js"></script>
 </body>

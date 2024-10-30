@@ -1,35 +1,80 @@
-body {
+body { 
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: transparent;
-    background-image: url('assets/ktg2.jpg'); /* Change path and filename as needed */
-    background-size: cover; /* Ensures the image covers the whole area */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    height: 60vh; /* Sets the height to fill the viewport */
+    background-color: #FFF5E1; /* Soft cream background */
+    background-image: url(''); /* Add path to background image if desired */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 header {
-    background-color: #240021;
-    color: white;
+    background-color: #FFF5E1; /* Dark charcoal header for a classic feel */
+    color: #ffffff;
     padding: 15px;
     text-align: center;
 }
 
 .cart-link {
-    display: flex;
-    align-items: center;
-    margin-left: 1240px;
-    color: white;
+    color: #FFFFFF;
     text-decoration: none;
     font-weight: bold;
+    float: right;
+    margin-right: 20px;
 }
 
 nav a {
-    color: white;
+    color: #FFFFFF;
     text-decoration: none;
     margin: 0 15px;
+}
+
+nav a:hover {
+    color: #FF7F50; /* Soft coral accent color for hover effect */
+}
+
+#hero {
+    background: url('fashion-banner.jpg') no-repeat center center/cover;
+    height: 400px;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+}
+
+.shop-now {
+    background-color: #FF7F50; /* Coral button for warmth and attraction */
+    color: #FFFFFF;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.shop-now:hover {
+    background-color: #FF6347; /* Slightly darker coral for hover effect */
+}
+
+#featured-products {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    background-color: #FFF5E1; /* Soft off-white background */
+}
+
+.featured-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #3B3B3B;
 }
 
 #products {
@@ -40,37 +85,46 @@ nav a {
 }
 
 .product {
+    background-color: #FFFFFF;
     border: 1px solid #ddd;
-    background-color: white;
     margin: 15px;
     padding: 15px;
     width: 200px;
     text-align: center;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for elegance */
+    transition: transform 0.2s ease;
+}
+
+.product:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
 }
 
 .product img {
     width: 100%;
     height: auto;
+    border-radius: 8px;
 }
 
 button {
-    background-color: #333;
-    color: white;
+    background-color: #B56576; /* Elegant dusty rose for a harmonious feel */
+    color: #FFFFFF;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 button:hover {
-    background-color: #555;
+    background-color: #8E3A59; /* Darker rose for hover effect */
 }
 
 #cart {
-    background-color: white;
+    background-color: #FFFFFF;
     padding: 20px;
     margin: 20px auto;
     width: 300px;
     text-align: center;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
 }
 
 #cart-items {
@@ -85,7 +139,7 @@ button:hover {
 #contact-info, #contact-details, #about {
     text-align: center;
     padding: 20px;
-    background-color: white;
+    background-color: #FFF5E1;
     margin: 20px;
 }
 
@@ -93,10 +147,6 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-label {
-    margin: 10px 0 5px 0;
 }
 
 input, textarea {
@@ -107,15 +157,16 @@ input, textarea {
 }
 
 button[type="submit"] {
-    background-color: #333;
-    color: white;
+    background-color: #3B3B3B;
+    color: #FFFFFF;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 button[type="submit"]:hover {
-    background-color: #555;
+    background-color: #555555;
 }
 
 ul {
@@ -125,63 +176,16 @@ ul {
 
 h1, h2, h3 {
     margin: 20px 0;
+    color: #3B3B3B;
 }
 
-/* Hero Section */
-#hero {
-    background: url('fashion-banner.jpg') no-repeat center center/cover;
-    height: 400px;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.hero-content {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-}
-
-.shop-now {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.shop-now:hover {
-    background-color: #555;
-}
-
-/* Featured Products */
-#featured-products {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
-
-.featured-title {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-#featured-products .product {
-    margin: 5px;
-    text-align: center;
-}
-
-/* Centered Paragraph Section */
 .centered-paragraph {
     text-align: center;
     max-width: 800px;
-    margin: 50px auto; /* Centers the paragraph horizontally */
+    margin: 50px auto;
     padding: 20px;
     line-height: 1.6;
+    color: #3B3B3B;
 }
 
 .centered-paragraph p {
@@ -190,35 +194,41 @@ h1, h2, h3 {
 }
 
 footer {
-    background-color: #252525;
-    color: white;
+    background-color: #3B3B3B;
+    color: #FFFFFF;
     padding: 20px;
     text-align: center;
 }
 
 footer nav a {
-    color: rgb(109, 38, 93);
+    color: #FF7F50;
     margin: 0 10px;
+    text-decoration: none;
+}
+
+footer nav a:hover {
+    color: #FF6347;
 }
 
 .collection-name {
-    text-align: center; /* Center the collection name */
-    margin: 10px 0 20px; /* Space above and below the collection name */
-    font-size: 1.5em; /* Adjust font size as needed */
-    color: #333; /* Optional: Set a specific color */
-    font-weight: bold; /* Optional: Make it bold */
+    text-align: center;
+    margin: 10px 0 20px;
+    font-size: 1.5em;
+    color: #333;
+    font-weight: bold;
 }
 
 .product-images {
     position: relative;
     width: 100%;
-    height: 250px; /* Adjust height as needed */
+    height: 250px;
     overflow: hidden;
+    border-radius: 8px;
 }
 
 .product-images img {
-    width: 100%; /* Set a max width for each image */
-    height: 100%; /* Ensures full height */
+    width: 100%;
+    height: 100%;
     position: absolute;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
@@ -228,35 +238,22 @@ footer nav a {
     opacity: 1;
 }
 
-.product {
-    margin: 10px; /* Space around each product */
-    text-align: center; /* Center text within each product */
-    flex: 1 1 200px; /* Allows flexibility while ensuring a minimum width */
-    max-width: 250px; /* Optional maximum width */
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2em;
-    margin-bottom: 10px;
-}
-
-.materials-description {
-    color: rgb(255, 255, 255);
-    text-align: center;
-    font-size: 1.1em;
-    margin: 10px 20px 30px; /* Space around the paragraph */
-    line-height: 1.6;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 15px 20px; 
-    border-radius: 8px;
-    max-width: 800px;
-    margin: 20px auto;
-}
-
 .product-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
+}
+
+.materials-description {
+    color: #3B3B3B;
+    text-align: center;
+    font-size: 1.1em;
+    margin: 10px 20px 30px;
+    line-height: 1.6;
+    background-color: rgba(255, 245, 225, 0.9);
+    padding: 15px 20px;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 20px auto;
 }

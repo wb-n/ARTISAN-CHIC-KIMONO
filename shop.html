@@ -26,6 +26,7 @@
         </p>
 
         <div class="product-grid" id="products">
+
             <div class="product" id="product1">
                 <div class="product-images">
                     <img src="assets/bbf.png" alt="Kimono 1" class="slide">
@@ -35,51 +36,57 @@
                 <p>Price: £35</p>
                 <button onclick="addToCart('Cool Jacket', 35)">Add to Cart</button>
             </div>
+
             <div class="product" id="product2">
                 <div class="product-images">
-                    <img src="assets/brf.png" alt="Kimono 1" class="slide">
-                    <img src="assets/brb.png" alt="Kimono 2" class="slide active">
+                    <img src="assets/brf.png" alt="Kimono 1" class="active">
+                    <img src="assets/brb.png" alt="Kimono 2">
                 </div>
                 <h3>Cool Jacket</h3>
                 <p>Price: £35</p>
                 <button onclick="addToCart('Cool Jacket', 35)">Add to Cart</button>
             </div>
+
             <div class="product" id="product3">
                 <div class="product-images">
-                    <img src="assets/bsf.png" alt="Kimono 1" class="slide">
-                    <img src="assets/bsf.png" alt="Kimono 1" class="slide active">
+                    <img src="assets/bsf.png" alt="Kimono 1" class="active">
+                    <img src="assets/bsf.png" alt="Kimono 1">
                 </div>
                 <h3>Cool Jacket</h3>
                 <p>Price: £35</p>
                 <button onclick="addToCart('Cool Jacket', 35)">Add to Cart</button>
             </div>
+
             <div class="product" id="product4">
                 <div class="product-images">
-                    <img src="assets/ff.png" alt="Kimono 1" class="slide">
-                    <img src="assets/fb.png" alt="Kimono 2" class="slide active">
+                    <img src="assets/ff.png" alt="Kimono 1" class="active">
+                    <img src="assets/fb.png" alt="Kimono 2">
                 </div>
                 <h3>Cool Jacket</h3>
                 <p>Price: £35</p>
                 <button onclick="addToCart('Cool Jacket', 35)">Add to Cart</button>
             </div>
+
             <div class="product" id="product5">
                 <div class="product-images">
-                    <img src="assets/rsf.png" alt="Kimono 1" class="slide">
-                    <img src="assets/rsb.png" alt="Kimono 2" class="slide active">
+                    <img src="assets/rsf.png" alt="Kimono 1" class="active">
+                    <img src="assets/rsb.png" alt="Kimono 2">
                 </div>
                 <h3>Cool Jacket</h3>
                 <p>Price: £35</p>
                 <button onclick="addToCart('Cool Jacket', 35)">Add to Cart</button>
             </div>
+
             <div class="product" id="product6">
                 <div class="product-images">
-                    <img src="assets/bbf.png" alt="Kimono 1" class="slide">
-                    <img src="assets/bbb.png" alt="Kimono 2" class="slide active">
+                    <img src="assets/bbf.png" alt="Kimono 1" class="active">
+                    <img src="assets/bbb.png" alt="Kimono 2">
                 </div>
                 <h3>Cool Jacket</h3>
                 <p>Price: £35</p>
                 <button onclick="addToCart('Cool Jacket', 35)">Add to Cart</button>
             </div>
+            
         </div>
     </section>
 
@@ -90,30 +97,21 @@
     </section>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const slideshows = document.querySelectorAll(".product-images");
-            slideshows.forEach(slideshow => {
-                const slides = slideshow.querySelectorAll("img");
-                let index = 0;
+        let currentIndex = 0;
 
-                function showNextSlide() {
-                    // Remove 'active' class from the current slide
-                    slides[index].classList.remove("active");
+        function changeImage(direction) {
+            const images = document.querySelectorAll('.product-images img');
+            images[currentIndex].classList.remove('active');
 
-                    // Move to the next index
-                    index = (index + 1) % slides.length; // Loop back to the first slide after the last
+            currentIndex += direction;
+            if (currentIndex < 0) {
+                currentIndex = images.length - 1;
+            } else if (currentIndex >= images.length) {
+                currentIndex = 0;
+            }
 
-                    // Add 'active' class to the next slide
-                    slides[index].classList.add("active");
-                }
-
-                // Initially show the first image
-                slides[0].classList.add("active");
-
-                // Change slide every 3 seconds
-                setInterval(showNextSlide, 3000);
-            });
-        });
+            images[currentIndex].classList.add('active');
+        }
     </script>
 
     <script src="scripts.js"></script>

@@ -15,6 +15,7 @@
             <a href="shop.html">Shop</a>
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
+            <a href="cart.html" class="cart-link"><b>Cart 🛒</b></a>
         </nav>
     </header>
 
@@ -28,65 +29,77 @@
         <div class="product-grid" id="products">
 
             <div class="product" id="product1">
-                <div class="product-images">
+                <div class="product-images" id="product1-images">
                     <img src="assets/bbf.png" alt="Kimono 1" class="slide">
                     <img src="assets/bbb.png" alt="Kimono 2" class="slide active">
                 </div>
+                <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+                <button class="next" onclick="changeImage(1)">&#10095;</button>
                 <h3>Cool Jacket</h3>
                 <p>Price: £35</p>
                 <button onclick="addToCart('Cool Jacket', 35)">Add to Cart</button>
             </div>
 
             <div class="product" id="product2">
-                <div class="product-images">
+                <div class="product-images" id="product2-images">
                     <img src="assets/brf.png" alt="Kimono 1" class="active">
                     <img src="assets/brb.png" alt="Kimono 2">
                 </div>
+                <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+                <button class="next" onclick="changeImage(1)">&#10095;</button>
                 <h3>Cool Jacket</h3>
                 <p>Price: £35</p>
                 <button onclick="addToCart('Cool Jacket', 35)">Add to Cart</button>
             </div>
 
             <div class="product" id="product3">
-                <div class="product-images">
+                <div class="product-images" id="product3-images">
                     <img src="assets/bsf.png" alt="Kimono 1" class="active">
                     <img src="assets/bsf.png" alt="Kimono 1">
                 </div>
+                <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+                <button class="next" onclick="changeImage(1)">&#10095;</button>
                 <h3>Cool Jacket</h3>
                 <p>Price: £35</p>
                 <button onclick="addToCart('Cool Jacket', 35)">Add to Cart</button>
             </div>
 
             <div class="product" id="product4">
-                <div class="product-images">
+                <div class="product-images" id="product4-images">
                     <img src="assets/ff.png" alt="Kimono 1" class="active">
                     <img src="assets/fb.png" alt="Kimono 2">
                 </div>
+                <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+                <button class="next" onclick="changeImage(1)">&#10095;</button>
                 <h3>Cool Jacket</h3>
                 <p>Price: £35</p>
                 <button onclick="addToCart('Cool Jacket', 35)">Add to Cart</button>
             </div>
 
             <div class="product" id="product5">
-                <div class="product-images">
+                <div class="product-images" id="product5-images">
                     <img src="assets/rsf.png" alt="Kimono 1" class="active">
                     <img src="assets/rsb.png" alt="Kimono 2">
                 </div>
+                <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+                <button class="next" onclick="changeImage(1)">&#10095;</button>
                 <h3>Cool Jacket</h3>
                 <p>Price: £35</p>
                 <button onclick="addToCart('Cool Jacket', 35)">Add to Cart</button>
             </div>
 
             <div class="product" id="product6">
-                <div class="product-images">
+                <div class="product-images" id="product6-images">
                     <img src="assets/bbf.png" alt="Kimono 1" class="active">
                     <img src="assets/bbb.png" alt="Kimono 2">
                 </div>
+                <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+                <button class="next" onclick="changeImage(1)">&#10095;</button>
                 <h3>Cool Jacket</h3>
                 <p>Price: £35</p>
                 <button onclick="addToCart('Cool Jacket', 35)">Add to Cart</button>
             </div>
-            
+
         </div>
     </section>
 
@@ -97,20 +110,13 @@
     </section>
 
     <script>
-        let currentIndex = 0;
+        function changeImage(productId, direction) {
+            const images = document.querySelectorAll(`#${productId} img`);
+            let activeIndex = Array.from(images).findIndex(image => image.classList.contains('active'));
 
-        function changeImage(direction) {
-            const images = document.querySelectorAll('.product-images img');
-            images[currentIndex].classList.remove('active');
-
-            currentIndex += direction;
-            if (currentIndex < 0) {
-                currentIndex = images.length - 1;
-            } else if (currentIndex >= images.length) {
-                currentIndex = 0;
-            }
-
-            images[currentIndex].classList.add('active');
+            images[activeIndex].classList.remove('active');
+            activeIndex = (activeIndex + direction + images.length) % images.length;
+            images[activeIndex].classList.add('active');
         }
     </script>
 
